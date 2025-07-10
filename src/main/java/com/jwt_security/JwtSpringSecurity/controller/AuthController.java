@@ -52,7 +52,7 @@ public class AuthController {
                 return new ResponseEntity<>("Username or password cannot be blank", HttpStatus.BAD_REQUEST);
             }
 
-            // Authenticate the user after registration
+            // Authenticate the user before SingUp(Login)
             Authentication authentication=authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(),request.getPassword())
             );

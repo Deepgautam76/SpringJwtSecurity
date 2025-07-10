@@ -40,11 +40,11 @@ public class JwtUtilities {
         return extractAllClaims(jwtToken).getSubject();
     }
 
-    public boolean ValidateToken(String jwtToken, UserDetails userDetails) {
+    public boolean validateToken(String jwtToken, UserDetails userDetails) {
         final String username=extractUsername(jwtToken);
-        return username.equals(userDetails.getUsername())&&!isTokenExpire(jwtToken) ;
+        return username.equals(userDetails.getUsername())&&!tokenExpire(jwtToken) ;
     }
-    private boolean isTokenExpire(String jwtToken) {
+    private boolean tokenExpire(String jwtToken) {
         final Date expiration=extractAllClaims(jwtToken).getExpiration();
         return expiration.before(new Date());
     }
