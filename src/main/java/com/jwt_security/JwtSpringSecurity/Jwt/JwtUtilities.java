@@ -12,7 +12,8 @@ import java.util.Date;
 
 @Component
 public class JwtUtilities {
-    private final String secretKey = "this_is_my_super_secret_key_my_jwt_Authentication_authorization";
+//    private final String secretKey = "this_is_my_super_secret_key_my_jwt_Authentication_authorization";
+    private final String secretKey=System.getenv("JWT_SECRET");
     private final SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
     public String jwtTokenGenerate(String username) {
         return
